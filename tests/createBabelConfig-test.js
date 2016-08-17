@@ -14,7 +14,7 @@ describe('createBabelConfig()', () => {
     it('generates default Babel config', () => {
       expect(createBabelConfig()).toEqual({
         presets: [
-          [require.resolve('babel-preset-es2015'), {loose: true, modules: 'commonjs'}],
+          [require.resolve('babel-preset-es2015'), {loose: true, modules: false}],
           require.resolve('babel-preset-es2016'),
           require.resolve('babel-preset-stage-2'),
         ],
@@ -29,7 +29,7 @@ describe('createBabelConfig()', () => {
   context('with build config', () => {
     it('generates build-configured Babel config', () => {
       expect(createBabelConfig({
-        modules: false,
+        modules: 'commonjs',
         presets: ['react', 'react-hmre'],
         stage: 0,
         env: {
@@ -39,7 +39,7 @@ describe('createBabelConfig()', () => {
         },
       })).toEqual({
         presets: [
-          [require.resolve('babel-preset-es2015'), {loose: true, modules: false}],
+          [require.resolve('babel-preset-es2015'), {loose: true, modules: 'commonjs'}],
           require.resolve('babel-preset-es2016'),
           require.resolve('babel-preset-stage-0'),
           require.resolve('babel-preset-react'),
@@ -68,7 +68,7 @@ describe('createBabelConfig()', () => {
         presets: ['test-preset'],
       })).toEqual({
         presets: [
-          [require.resolve('babel-preset-es2015'), {loose: false, modules: 'commonjs'}],
+          [require.resolve('babel-preset-es2015'), {loose: false, modules: false}],
           require.resolve('babel-preset-es2016'),
           require.resolve('babel-preset-stage-0'),
           'test-preset',
@@ -86,7 +86,7 @@ describe('createBabelConfig()', () => {
           runtime,
         })).toEqual({
           presets: [
-            [require.resolve('babel-preset-es2015'), {loose: true, modules: 'commonjs'}],
+            [require.resolve('babel-preset-es2015'), {loose: true, modules: false}],
             require.resolve('babel-preset-es2016'),
             require.resolve('babel-preset-stage-2'),
           ],
@@ -108,7 +108,7 @@ describe('createBabelConfig()', () => {
     it('overrides build stage config with user stage config', () => {
       expect(createBabelConfig({stage: 3}, {stage: 1})).toEqual({
         presets: [
-          [require.resolve('babel-preset-es2015'), {loose: true, modules: 'commonjs'}],
+          [require.resolve('babel-preset-es2015'), {loose: true, modules: false}],
           require.resolve('babel-preset-es2016'),
           require.resolve('babel-preset-stage-1'),
         ],
@@ -121,7 +121,7 @@ describe('createBabelConfig()', () => {
     it('cancels default stage config', () => {
       expect(createBabelConfig({}, {stage: false})).toEqual({
         presets: [
-          [require.resolve('babel-preset-es2015'), {loose: true, modules: 'commonjs'}],
+          [require.resolve('babel-preset-es2015'), {loose: true, modules: false}],
           require.resolve('babel-preset-es2016'),
         ],
         plugins: [
@@ -132,7 +132,7 @@ describe('createBabelConfig()', () => {
     it('cancels default runtime config', () => {
       expect(createBabelConfig({}, {runtime: false})).toEqual({
         presets: [
-          [require.resolve('babel-preset-es2015'), {loose: true, modules: 'commonjs'}],
+          [require.resolve('babel-preset-es2015'), {loose: true, modules: false}],
           require.resolve('babel-preset-es2016'),
           require.resolve('babel-preset-stage-2'),
         ],
