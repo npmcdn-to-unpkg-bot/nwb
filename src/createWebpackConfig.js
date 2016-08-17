@@ -634,10 +634,9 @@ export default function createWebpackConfig(buildConfig, nwbPluginConfig = {}, u
     },
     plugins: createPlugins(server, buildPluginConfig, userWebpackConfig),
     resolve: merge({
-      extensions: ['', '.js', '.json'],
+      extensions: ['.js', '.json'],
       // Fall back to resolving runtime dependencies from nwb's dependencies,
-      // e.g. for babel-runtime when using the transform-runtime plugin.
-      fallback: path.join(__dirname, '../node_modules'),
+      modules: ['node_modules', path.join(__dirname, '../node_modules')],
     }, buildResolveConfig, userResolveConfig),
     postcss: createPostCSSConfig(userWebpackConfig, nwbPluginConfig.cssPreprocessors),
     ...otherBuildConfig,
