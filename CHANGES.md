@@ -2,6 +2,10 @@
 
 - Removed support for deprecated `webpack.plugins` config.
 
+**Changed:**
+
+- [`webpack.uglify` config](https://github.com/insin/nwb/blob/next/docs/Configuration.md#uglify-object--false) can now be set to `false` to disable use of `UglifyJSPlugin` in production builds. [[#160](https://github.com/insin/nwb/issues/160)]
+
 **Dependencies:**
 
 - babel-loader: v6.2.4 → [v6.2.5](https://github.com/babel/babel-loader/blob/master/CHANGELOG.md) - better syntax error messages
@@ -9,7 +13,7 @@
 - postcss-loader: v0.10.0 → [v0.10.1](https://github.com/postcss/postcss-loader/blob/master/CHANGELOG.md#0101) - better syntax error messages
 - webpack: v1.13.1 → [v1.13.2](https://github.com/webpack/webpack/compare/v1.13.1...v1.13.2) - updated node-libs-browser
 
-# 0.12.0/ 2016-08-16
+# 0.12.0 / 2016-08-16
 
 **Breaking Changes:**
 
