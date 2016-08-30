@@ -2,6 +2,10 @@
 
 - Removed support for deprecated `webpack.plugins` config.
 
+**Added:**
+
+- Added a `reload` option to [Express middleware](https://github.com/insin/nwb/blob/next/docs/Middleware.md#middlewareexpress-options-object) to enable reloading the page if Hot Module Reloading is unsuccessful [[#168](https://github.com/insin/nwb/issues/168)]
+
 **Changed:**
 
 - [`webpack.uglify` config](https://github.com/insin/nwb/blob/next/docs/Configuration.md#uglify-object--false) can now be set to `false` to disable use of `UglifyJSPlugin` in production builds. [[#160](https://github.com/insin/nwb/issues/160)]
